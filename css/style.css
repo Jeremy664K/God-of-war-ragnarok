@@ -1,0 +1,519 @@
+@font-face {
+    font-family: "Berserker-Regular";
+    src: url("/fonts/Berserker-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "sst";
+    src: url("/fonts/SSTRg.TTF") format("truetype");
+}
+
+:root {
+    --max-width-center: 68rem;
+    
+    --font-global: "sst", -apple-system, system-ui, sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue"; 
+    --font-magic: "Berserker-Regular", -apple-system, system-ui, sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue";
+
+    --space-separator-xl-small: 0.2rem;
+    --space-separator-x-small: 0.5rem; 
+    --space-separator-small: 1.2rem;
+    --space-separator-page: 10rem;
+
+    --font-size-x-small: 0.6rem;
+    --font-size-small: 0.8rem;
+    --font-size-long: 1.5rem;
+    --font-size-title: 3rem;
+
+    --border-active: 0.1rem solid var(--color-secondary);
+
+    --border-radius-rounded: 99rem;
+    --border-radius-card: 0.75rem;
+
+    --color-primary: #fff;
+    --color-secondary: #000;
+    --color-tertiary: #757575;
+
+    --color-ps: #0070d1;
+    --color-ps-hover: #005499;
+
+    --color-game: #d63d00;
+    --color-game-hover: #a32e00;
+
+    --color-hero: rgb(31, 31, 31);
+    --color-hero-end: rgba(31, 31, 31, 0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-global);
+    font-size: var(--font-size-small);
+    color: var(--color-primary);
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+}
+
+/* GENERAL CLASSES */
+
+.center {
+    padding: var(--space-separator-small);
+    max-width: var(--max-width-center);
+    margin: 0 auto;
+}
+
+.section {
+    padding: var(--space-separator-page) var(--space-separator-small);
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.gap {
+    gap: var(--space-separator-small);
+    list-style: none;
+}
+
+.margin--top {
+    margin-top: var(--space-separator-small);
+}
+
+.link {
+    color: var(--color-tertiary);
+    fill: var(--color-primary);
+    font-size: var(--font-size-small);
+    transition: background-color .12s, color .12s;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.link:hover {
+    color: var(--color-ps);
+}
+
+.link__ps, .link__game, .link__tertiary {
+    background-color: var(--color-ps);
+    color: var(--color-primary);
+    padding: var(--space-separator-x-small) var(--space-separator-small);
+    border-radius: var(--border-radius-rounded);
+}  
+
+.link__ps:hover {
+    background-color: var(--color-ps-hover);
+    color: var(--color-primary);
+}
+
+.link__game {
+    background-color: var(--color-game);
+}
+
+.link__game:hover, .link__tertiary:hover {
+    background-color: var(--color-game-hover);
+    color: var(--color-primary);
+}
+
+.link__tertiary {
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+}
+
+.title {
+    font-family: var(--font-magic);
+    font-size: var(--font-size-title);
+    font-weight: 800;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.tag {
+    margin-left: var(--space-separator-xl-small);
+    padding: var(--space-separator-xl-small);
+    border: var(--border-active);
+    border-color: var(--color-primary);
+}
+
+/* HEADER */
+
+.header__sony {
+    padding: 0 var(--space-separator-small);
+    background-color: var(--color-secondary);
+    justify-content: end;
+}
+
+.ps__nav, .header__game {
+    padding: var(--space-separator-x-small) var(--space-separator-small);
+    background-color: var(--color-primary);
+    justify-content: space-between;
+}
+
+.header__game__logo {
+    width: 8rem;
+    height: 100%;
+}
+
+/* HERO */
+
+.hero, .about, .features, .midgard, .midgard__watch, .characters, .portrait, .kingdoms, .combat, .combat__weapons, .combat__featured, .upgrade, .upgrade__home, .guide, .package {
+    position: relative;
+    overflow: hidden;   
+    background-image: linear-gradient(to bottom, var(--color-hero-end) 20%, var(--color-hero) 100%);
+}
+
+.hero__video__content, .combat__video__content, .upgrade__video__content, .about__images, .features__image, .characters__images, .portrait__images, .combat__images, .upgrade__images, .guide__images, .package__images {      
+    position: absolute;
+    z-index: -1;
+}
+
+.hero__video__content::before, .about__images__bfg::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(to right, var(--color-hero) 0%, var(--color-hero-end) 60%);
+}
+
+.hero__video__content, .hero__video, .combat__video__content, .combat__video, .upgrade__video__content, .about__images, .features__image, .features__bg, .sell__card__image, .midgard__image, .midgard__bg, .myths__illustration, .characters__images, .characters__image, .characters__bg, .portrait__images, .portrait__bg, .portrait__image, .kingdoms__tree, .kingdoms__images, .combat__images, .combat__bg, .combat__power__image, .upgrade__bg, .upgrade__image, .upgrade__video, .guide__image, .guide__bg, .guide__images, .package__images, .package__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* HOME */
+
+.home__title__ragnarok {
+    display: block;
+    color: var(--color-game);
+}
+
+.home__middle__available {
+    font-size: var(--font-size-x-small);
+}
+
+.home__middle__price, .sell__card__price {
+    font-size: var(--font-size-long);
+}
+
+.home__footer, .combat__featured {
+    justify-content: end;
+}
+
+.home__footer__mature, .home__footer__mature:hover {   
+    color: var(--color-primary);
+    font-weight: 300;
+    max-width: 15rem;
+}
+
+/* GALLERY */
+
+.hero__gallery {
+    background-color: var(--color-hero);
+}
+
+.hero__gallery__content, .hero__gallery__list, .characters__list__content, .kingdoms__home__image, .kingdoms__tree {
+    position: relative;
+    transition: transform 1s;
+}
+
+.hero__gallery__link {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 .25rem .43rem 0 var(--color-secondary);
+    filter: opacity(0.8);
+    justify-content: center;
+    border-radius: var(--border-radius-card);
+    transition: transform .12s;
+}
+
+.hero__gallery__link:hover {
+    transform: scale(1.02);
+}
+
+.hero__gallery__icon, .kindoms__list__title {
+    position: absolute;
+}
+
+.hero__gallery__pagination, .sell__card__tag, .characters__pagination, .combat__weapons {
+    justify-content: center;
+}
+
+.hero__gallery__next, .characters__next {
+    width: .93rem;
+    height: .18rem;
+    background-color: var(--color-tertiary);
+}
+
+.hero__gallery__next--active, .characters__next--active {
+    background-color: var(--color-primary);
+}
+
+.hero__gallery__arrow, .characters__arrow {
+    position: absolute;
+    margin: 0 var(--space-separator-small);
+    z-index: 1;
+    padding: var(--space-separator-x-small);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-radius: var(--border-radius-rounded);
+}
+
+.hero__gallery__arrow--right, .characters__arrow--right {
+    right: 0;
+}
+
+/* ABOUT */
+
+.about__images__bfg, .about__image__bg, .about__image__fg, .about__images__parallax, .about__image__parallax, .midgard__image, .kingdoms__images, .kingdoms__images__bg, .kingdoms__images__parallax, .upgrade__images {
+    position: absolute;
+    left: 0;
+    object-fit: cover;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+}
+
+.about__images__parallax {
+    max-width: 50%;
+    left: auto;
+    right: 0;
+}
+
+.about__image__parallax {
+    width: 100%;
+    height: auto;
+}
+
+.about__image__parallax--freya {
+    transform: translate(40%, -40%);
+}
+
+.about__image__parallax--kratos {
+    transform: translate(-70%, -30%);
+    width: 25rem;
+}
+
+.about__image__parallax--sled {
+    transform: translate(-40%, 5%);
+    width: 80rem;
+    z-index: 1;
+}
+
+.about__image__parallax--atreus {
+    z-index: 1;
+    transform: translateX(20%);
+}
+
+.about__game__salient, .midgard__home__salient, .characters__home__salient {
+    color: var(--color-game);
+}
+
+.about__game__title, .about__game__abstract, .midgard__home__abstract, .myths__blockquote {
+    font-weight: 300;
+    line-height: 1.2;
+    max-width: 35rem;
+}
+
+/* FEATURES */
+
+.features {
+    background: transparent;
+}
+
+.features__card__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-card);
+}
+
+/* SELL */
+
+.sell {
+    background-color: var(--color-hero);
+    text-align: center;
+}
+
+.sell__card {
+    width: auto;
+    height: 100%;
+    padding: var(--space-separator-small) 0;
+    flex-direction: column;
+    background-color: rgba(31, 32, 36, .97);
+}
+
+.sell__card__features, .questions__link {
+    text-align: left;
+}
+
+/* MIDGARD */
+
+.midgard__home, .characters__home, .kingdoms__home__title, .combat__weapons__title, .upgrade__home__title {
+    z-index: 1;
+    position: inherit;
+    text-align: center;
+    max-width: 40rem;
+}
+
+.midgard__bg--books {
+    height: auto;
+}
+
+.midgard__myths {
+    position: relative;
+    color: var(--color-secondary);   
+}
+
+.myths__blockquote {
+    font-size: var(--font-size-long);
+}
+
+.midgard__see {
+    flex-direction: column;
+    position: relative;
+    color: var(--color-primary);
+}
+
+/* CHARACTERS */
+
+.characters, .combat, .combat__weapons, .combat__featured, .upgrade, .upgrade__home, .guide, .package {
+    background-image: none;
+}
+
+.characters__slider, .questions__title {
+    text-align: center;
+}
+
+.characters__link {
+    filter: brightness(40%);
+    transition: transform 0.12s, filter 0.12s;
+}
+
+.characters__link--active, .characters__link:hover {
+    filter: brightness(100%);
+}
+
+.characters__link--active {
+    transform: scale(1.5);
+}
+
+/* Portraits */
+
+.portrait__home {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.portrait__link {
+    position: relative;
+    padding: var(--space-separator-x-small);
+    box-shadow: 0 .25rem .43rem 0 var(--color-secondary);
+}
+
+.portrait__image {
+    max-width: auto;
+    max-height: 15rem;
+}
+
+.portrait__frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.portrait__link--last {
+    grid-column: span 2;
+}
+
+/* KINGDOMS */
+
+.kingdoms__home {
+    color: rgb(37, 19, 9);
+    justify-content: center;
+    flex-direction: column;
+}
+
+.kindoms__list__title {
+    color: var(--color-secondary);
+    max-width: 16rem;
+    transform: translateY(-10rem);
+    z-index: 1;
+} 
+
+/* COMBAT */
+
+.combat__featured__title {
+    max-width: 27rem;
+}
+
+.combat__power__title, .combat__power__image, .upgrade__features__title, .upgrade__features__image, .guide__card--together, .package__card__home, .package__card__image, .package__card__experience, .package__card__list {
+    width: 50%;
+    height: auto;
+}
+
+/* UPGRADE */ 
+
+.upgrade__features__card {
+    color: var(--color-secondary);
+}
+
+/* GUIDE */
+
+.guide__home, .guide__card--together, .package__card__list {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* QUESTIONS */
+
+.questions {
+    background-color: var(--color-hero);
+}
+
+.questions__link {
+    width: 100%;
+    color: var(--color-primary);
+    background-color: var(--color-ps);
+    padding: var(--space-separator-small);
+    justify-content: space-between;
+}
+
+.questions__link:hover {
+    color: var(--color-primary);
+    background-color: var(--color-ps-hover);
+}
+
+.questions__response {
+    display: none;
+}
+
+/* INFORMATION */
+
+.information {
+    background-color: rgba(18, 19, 20);
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--color-ps-hover);
+    padding-bottom: var(--space-separator-small);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer__link {
+    color: #f2f2f2;
+}
+
+.footer__link:hover {
+    color: var(--color-primary);
+}
