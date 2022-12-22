@@ -21,17 +21,18 @@
 
     --font-size-x-small: 0.6rem;
     --font-size-small: 0.8rem;
+    --font-size: 0.9rem;
     --font-size-long: 1.5rem;
     --font-size-title: 3rem;
 
-    --border-active: 0.1rem solid var(--color-secondary);
+    --border-active: 0.125rem solid var(--color-secondary);
 
     --border-radius-rounded: 99rem;
     --border-radius-card: 0.75rem;
 
     --color-primary: #fff;
     --color-secondary: #000;
-    --color-tertiary: #757575;
+    --color-tertiary: rgba(255,255,255,.09);
 
     --color-ps: #0070d1;
     --color-ps-hover: #005499;
@@ -49,12 +50,33 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-global);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size);
     color: var(--color-primary);
     text-rendering: optimizeLegibility;
     min-height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    width: var(--space-separator-x-small);
+    height: auto;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--color-primary);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-game);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-game-hover)
 }
 
 /* GENERAL CLASSES */
@@ -84,11 +106,10 @@ body {
 }
 
 .link {
-    color: var(--color-tertiary);
     fill: var(--color-primary);
     font-size: var(--font-size-small);
     transition: background-color .12s, color .12s;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     cursor: pointer;
     border: none;
@@ -101,6 +122,7 @@ body {
 
 .link__ps, .link__game, .link__tertiary {
     background-color: var(--color-ps);
+    position: relative;
     color: var(--color-primary);
     padding: var(--space-separator-x-small) var(--space-separator-small);
     border-radius: var(--border-radius-rounded);
@@ -115,7 +137,25 @@ body {
     background-color: var(--color-game);
 }
 
-.link__game:hover, .link__tertiary:hover {
+.link__game::before, .link__ps::before, .link__tertiary::before { 
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -0.25rem;
+    top: -0.25rem;
+    padding: 0.125rem;
+    border: var(--border-active);
+    border-color: var(--color-game-hover);
+    border-radius: var(--border-radius-rounded);
+    content: "";
+}
+
+.link__game:active::before, .link__ps:active::before, .link__tertiary:active::before {
+    display: block;
+}
+
+.link__game:hover {
     background-color: var(--color-game-hover);
     color: var(--color-primary);
 }
@@ -125,14 +165,23 @@ body {
     color: var(--color-primary);
 }
 
+.link__tertiary:hover, .home__footer__mature:hover {
+    color: var(--color-primary);
+    background-color: rgba(255,255,255,.16);
+}
+
 .title {
     font-family: var(--font-magic);
     font-size: var(--font-size-title);
-    font-weight: 800;
+    font-weight: 700;
+}
+
+.salient {
+    color: var(--color-game);
 }
 
 .bold {
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .tag {
@@ -144,6 +193,12 @@ body {
 
 /* HEADER */
 
+.header {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
 .header__sony {
     padding: 0 var(--space-separator-small);
     background-color: var(--color-secondary);
@@ -154,19 +209,71 @@ body {
     padding: var(--space-separator-x-small) var(--space-separator-small);
     background-color: var(--color-primary);
     justify-content: space-between;
+    width: 100%;
 }
 
 .header__game__logo {
-    width: 8rem;
+    max-width: 8rem;
+    width: 100%;
+    height: auto;
+}
+
+.header__game__fixed, .loading, .modal, .search__page {
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 12%);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+.search__page { 
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    justify-content: center;
+    backdrop-filter: brightness(50%) blur(10px);
+    z-index: 15;
+}
+
+.search__page__input {
+    background-color: var(--color-primary);
+    padding: var(--space-separator-small);
+    font-size: var(--font-size);
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+.search__page__close {
+    border-right: var(--border-active);
+    border-color: #f2f2f2;
+}
+
+.search__page__submit {
+    background-color: var(--color-ps);
+    color: var(--color-primary);
+}
+
+.search__page__submit:hover {
+    color: var(--color-primary);
+    background-color: var(--color-ps-hover);
 }
 
 /* HERO */
+
+.hero {
+    padding-top: 9rem;
+}
 
 .hero, .about, .features, .midgard, .midgard__watch, .characters, .portrait, .kingdoms, .combat, .combat__weapons, .combat__featured, .upgrade, .upgrade__home, .guide, .package {
     position: relative;
     overflow: hidden;   
     background-image: linear-gradient(to bottom, var(--color-hero-end) 20%, var(--color-hero) 100%);
+}
+
+.hero__video__content {
+    top: 0;
+    left: 0;
 }
 
 .hero__video__content, .combat__video__content, .upgrade__video__content, .about__images, .features__image, .characters__images, .portrait__images, .combat__images, .upgrade__images, .guide__images, .package__images {      
@@ -183,17 +290,24 @@ body {
     background-image: linear-gradient(to right, var(--color-hero) 0%, var(--color-hero-end) 60%);
 }
 
-.hero__video__content, .hero__video, .combat__video__content, .combat__video, .upgrade__video__content, .about__images, .features__image, .features__bg, .sell__card__image, .midgard__image, .midgard__bg, .myths__illustration, .characters__images, .characters__image, .characters__bg, .portrait__images, .portrait__bg, .portrait__image, .kingdoms__tree, .kingdoms__images, .combat__images, .combat__bg, .combat__power__image, .upgrade__bg, .upgrade__image, .upgrade__video, .guide__image, .guide__bg, .guide__images, .package__images, .package__image {
+.hero__video__content, .hero__video, .combat__video__content, .combat__video, .upgrade__video__content, .about__images, .features__image, .features__bg, .sell__card__image, .midgard__image, .midgard__bg, .myths__illustration, .characters__images, .characters__image, .characters__bg, .portrait__images, .portrait__bg, .portrait__image, .kingdoms__tree, .kingdoms__images, .combat__images, .combat__bg, .combat__power__image, .upgrade__bg, .upgrade__image, .upgrade__video, .guide__image, .guide__bg, .guide__images, .package__images, .package__image, .modal__images, .modal__image, .kingdoms__image {
     object-fit: cover;
     width: 100%;
     height: 100%;
+}
+
+.hero__video {
+    object-position: 70%;
 }
 
 /* HOME */
 
 .home__title__ragnarok {
     display: block;
-    color: var(--color-game);
+}
+
+.home__title__serie {
+    font-family: var(--font-global);
 }
 
 .home__middle__available {
@@ -208,7 +322,11 @@ body {
     justify-content: end;
 }
 
-.home__footer__mature, .home__footer__mature:hover {   
+.home__footer__mature {
+    background-color: var(--color-tertiary);
+}
+
+.home__footer__mature {   
     color: var(--color-primary);
     font-weight: 300;
     max-width: 15rem;
@@ -220,7 +338,7 @@ body {
     background-color: var(--color-hero);
 }
 
-.hero__gallery__content, .hero__gallery__list, .characters__list__content, .kingdoms__home__image, .kingdoms__tree {
+.hero__gallery__content, .hero__gallery__list, .characters__list__content, .kingdoms__home__image, .kingdoms__tree, .midgard__content, .kingdoms__list, .kingdoms__list__tree, .kingdoms__realms {
     position: relative;
     transition: transform 1s;
 }
@@ -235,22 +353,27 @@ body {
     transition: transform .12s;
 }
 
-.hero__gallery__link:hover {
+.hero__gallery__link:hover, .portrait__link:hover {
     transform: scale(1.02);
 }
 
-.hero__gallery__icon, .kindoms__list__title {
+.hero__gallery__icon, .kingdoms__list__title, .kingdoms__list__links {
     position: absolute;
 }
 
-.hero__gallery__pagination, .sell__card__tag, .characters__pagination, .combat__weapons {
+.hero__gallery__pagination, .sell__card__tag, .characters__pagination, .combat__weapons, .loading, .modal__images {
     justify-content: center;
 }
 
 .hero__gallery__next, .characters__next {
+    transition: background-color 0.12s;
     width: .93rem;
     height: .18rem;
     background-color: var(--color-tertiary);
+}
+
+.hero__gallery__next:hover, .characters__next:hover {
+    background-color: var(--color-primary);
 }
 
 .hero__gallery__next--active, .characters__next--active {
@@ -313,10 +436,6 @@ body {
     transform: translateX(20%);
 }
 
-.about__game__salient, .midgard__home__salient, .characters__home__salient {
-    color: var(--color-game);
-}
-
 .about__game__title, .about__game__abstract, .midgard__home__abstract, .myths__blockquote {
     font-weight: 300;
     line-height: 1.2;
@@ -345,7 +464,7 @@ body {
 .sell__card {
     width: auto;
     height: 100%;
-    padding: var(--space-separator-small) 0;
+    padding: var(--space-separator-small);
     flex-direction: column;
     background-color: rgba(31, 32, 36, .97);
 }
@@ -361,10 +480,6 @@ body {
     position: inherit;
     text-align: center;
     max-width: 40rem;
-}
-
-.midgard__bg--books {
-    height: auto;
 }
 
 .midgard__myths {
@@ -388,16 +503,16 @@ body {
     background-image: none;
 }
 
-.characters__slider, .questions__title {
+.characters__slider, .questions__title, .features__title, .midgard__title, .information__copy {
     text-align: center;
 }
 
-.characters__link {
+.characters__link, .kingdoms__realms {
     filter: brightness(40%);
     transition: transform 0.12s, filter 0.12s;
 }
 
-.characters__link--active, .characters__link:hover {
+.characters__link--active, .characters__link:hover, .kingdoms__realms:hover {
     filter: brightness(100%);
 }
 
@@ -416,6 +531,7 @@ body {
     position: relative;
     padding: var(--space-separator-x-small);
     box-shadow: 0 .25rem .43rem 0 var(--color-secondary);
+    transition: transform .12s;
 }
 
 .portrait__image {
@@ -441,20 +557,62 @@ body {
     flex-direction: column;
 }
 
-.kindoms__list__title {
+.kingdoms__list__title {
     color: var(--color-secondary);
     max-width: 16rem;
-    transform: translateY(-10rem);
     z-index: 1;
 } 
 
+.kingdoms__realms, .kingdoms__list__title, .kingdoms__list__links, .kingdoms__tree {
+    top: 0;
+    transition: none;
+}
+
+.kingdoms__realms--first {
+    transform: translate(26.4rem, 2.4rem);
+    z-index: 2;
+}
+
+.kingdoms__realms--second {
+    transform: translate(-8rem, 8rem);
+}
+
+.kingdoms__realms--third {
+    transform: translate(8rem);
+}
+
+.kingdoms__realms--fourth {
+    transform: translate(30rem, -10rem);
+}
+
+.kingdoms__realms--fifth {
+    transform: translate(-26.4rem, -4rem);
+    z-index: 2;
+}
+
+.kingdoms__realms--sixth {
+    transform: translate(30rem, -16rem);
+}
+
+.kingdoms__realms--seventh {
+    transform: translate(-18rem, -12rem);
+}
+
+.kingdoms__realms--eighth {
+    transform: translate(31rem, -20rem);
+}
+
+.kingdoms__realms--ninth {
+    transform: translate(-26.4rem, -20rem);
+}
+
 /* COMBAT */
 
-.combat__featured__title {
+.combat__featured__title, .midgard__title {
     max-width: 27rem;
 }
 
-.combat__power__title, .combat__power__image, .upgrade__features__title, .upgrade__features__image, .guide__card--together, .package__card__home, .package__card__image, .package__card__experience, .package__card__list {
+.combat__power__title, .combat__power__image, .upgrade__features__title, .upgrade__features__image, .guide__card--together, .package__card__home, .package__card__image, .package__card__experience, .package__card__list, .modal__images, .modal__image, .modal__home__title {
     width: 50%;
     height: auto;
 }
@@ -491,8 +649,12 @@ body {
     background-color: var(--color-ps-hover);
 }
 
-.questions__response {
+.questions__response, .questions__expand__dash, .search__page, .responsive {
     display: none;
+}
+
+.isopenresponse {
+    display: block;
 }
 
 /* INFORMATION */
@@ -508,6 +670,7 @@ body {
     padding-bottom: var(--space-separator-small);
     flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 .footer__link {
@@ -516,4 +679,166 @@ body {
 
 .footer__link:hover {
     color: var(--color-primary);
+}
+
+/* LOADING */
+
+.loading, .modal {
+    position: fixed;
+    display: none;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    flex-direction: column;
+    width: 100%;
+    height: 100%;   
+    z-index: 15;
+}
+
+.loading__spinner {
+    position: relative;
+    border: var(--border-active);
+    border-color: var(--color-game);
+    border-top: 0;
+    border-left: 0;
+    border-radius: var(--border-radius-rounded);
+    width: 3rem;
+    height: 3rem;
+    animation: rotation 1s linear infinite;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    justify-content: center;
+    color: var(--color-primary);
+    background-color: var(--color-tertiary);
+    backdrop-filter: brightness(50%) blur(10px)
+}
+
+.modal__close {
+    position: absolute;
+    top: var(--space-separator-small);
+    right: var(--space-separator-small);
+}
+
+.isopen {
+    display: flex;
+}
+
+.isevent {
+    overflow: hidden;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1100px) {
+    .kingdoms {
+        display: none; /* VERY HARD ZONE FOR RESPONSIVE */
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    :root {
+        --font-size-title: 2rem;
+        --font-size: 0.8rem;
+        --font-size-long: 1rem;
+    }
+
+    .responsive__rect {
+        transition: transform 0.12s;
+    }
+
+    .responsive__rect--topchange {
+        transform: translate(15px, -10px) rotate(45deg);    
+    }
+
+    .responsive__rect--bottomchange {
+        transform: translate(-15px, 30px) rotate(-45deg);
+    }
+
+    .nav__shared {
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        z-index: 10;
+        top: -100vh;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--color-primary);
+    }
+
+    .responsive__button {
+        z-index: 15;
+    }
+
+    .iseventresponsive {
+        overflow: hidden;
+    }
+
+    .isopennav {
+        top: 0;
+    }
+
+    .nav__shared__li, .nav__shared__button, .sell__card, .responsive {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav__shared__button {
+        justify-content: space-between;
+        padding: var(--space-separator-x-small);
+        border-bottom: var(--border-active);
+        border-color: #f2f2f2;
+    }
+
+    .nav__shared__arrow {
+        transform: scale(2) rotate(270deg);
+    }
+
+    .upgrade__features__image, .combat__power__title {
+        order: 1;
+    }
+
+    .upgrade__features__title, .guide__home, .combat__power__figure {
+        order: 2;
+    }
+
+    .hero__video {
+        object-position: 80%;
+    }
+
+    .features__cards, .sell__cards, .portrait__content, .upgrade__features__card, .guide__card, .guide__together, .package__card, .information__platform, .combat__power__weapon, .modal__home {
+        flex-wrap: wrap;
+    }
+
+    .upgrade__features__image, .upgrade__features__title, .guide__card, .package__card__image, .package__image, .package__card__home, .combat__power__image, .combat__power__title, .modal__home__title, .modal__images {
+        width: 100%;
+    }
+}
+
+/* KEYFRAMES */
+
+.fade__in {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes rotation {
+    0% { 
+        transform: rotate(360deg) 
+    }
+} 
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(1.25rem);
+    }
+
+    10% {
+        opacity: 1;
+        filter: brightness(2) blur(0.6rem);
+    }
 }

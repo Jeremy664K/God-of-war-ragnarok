@@ -6,6 +6,7 @@ const galleryNextLinks = $$(".hero__gallery__next");
 const galleryNextArrow = $(".hero__gallery__arrow--right");
 const galleryPrevArrow = $(".hero__gallery__arrow--left");
 
+const informationLink = $(".character__information");
 const charactersLinks = $$(".characters__link");
 const charactersNextLinks = $$(".characters__next");
 const charactersTitle = $(".characters__title");
@@ -50,6 +51,7 @@ function characterSlider(nextLink, pos, isCharacterLink) {
 
     positionCharacter = pos;
     charactersTitle.textContent = characterLink.title;
+    informationLink.setAttribute("data-id", pos)
 
     charactersLinkActive.classList.remove("characters__link--active");
     charactersNextLinkActive.classList.remove("characters__next--active")
