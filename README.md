@@ -87,5 +87,5 @@ Referencia a la información de cada personaje, familia y reinos de God of War R
 
 ### Explora todo en el clon de la página
 
-[Página original](https://www.playstation.com/es-cl/games/god-of-war-ragnarok/)
+[Página original](https://www.playstation.com/es-cl/games/god-of-war-ragnarok/)  
 [Página clon](https://god-of-war-ragnarok-clone.netlify.app/)
