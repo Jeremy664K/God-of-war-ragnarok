@@ -2,7 +2,7 @@
 
 Descubre la saga del épico título y su nueva entrega God of War Ragnarök.
 
-👉 Enlace: [https://god-of-war-ragnarok-clone.netlify.app/](https://god-of-war-ragnarok-clone.netlify.app/)  
+👉 Enlace: [https://god-of-war-ragnarok-clone.netlify.app/](https://god-of-war-ragnarok-clone.netlify.app/)
 
 <p align="left">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="Icono de HTML">
@@ -32,7 +32,7 @@ Los Nórdicos continúan
 
 Distintas ediciones y más
 
-👉 Enlace: [https://god-of-war-ragnarok-clone.netlify.app/#buy](https://god-of-war-ragnarok-clone.netlify.app/#buy)  
+👉 Enlace: [https://god-of-war-ragnarok-clone.netlify.app/#buy](https://god-of-war-ragnarok-clone.netlify.app/#buy)
 
 ![Compra de God of War Ragnarok Clone](./images/readme-images/purchase.png)
 
@@ -40,8 +40,7 @@ Distintas ediciones y más
 
 Toda gran aventura es una historia que espera ser contada
 
-![Aventura de God of War Ragnarok Clone](./images/readme-images/aventure.png)
-![Historia de God of War Ragnarok Clone](./images/readme-images/history.png)
+![Aventura de God of War Ragnarok Clone](./images/readme-images/aventure.png) ![Historia de God of War Ragnarok Clone](./images/readme-images/history.png)
 
 ## Personajes
 
@@ -69,7 +68,7 @@ Tan poderosas como quienes las empuñan
 
 ## Manera de vivir
 
-Nuevas características y gráficos increíbles con una carga rápida 
+Nuevas características y gráficos increíbles con una carga rápida
 
 ![Características God of War Ragnarok Clone](./images/readme-images/features.png)
 

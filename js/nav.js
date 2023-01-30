@@ -18,8 +18,7 @@ function handleSubmit(event) {
     event.preventDefault();
     const valueSearch = new FormData(formSearch).get("search");
 
-    if(valueSearch)
-        location.href = `${urlPageSearch}?q=${valueSearch}`;
+    if (valueSearch) location.href = `${urlPageSearch}?q=${valueSearch}`;
 }
 
 function toggleForm() {
@@ -30,15 +29,15 @@ function toggleForm() {
 
 function toggleMenu() {
     menu.classList.toggle("isopennav");
-    body.classList.toggle("iseventresponsive")
+    body.classList.toggle("iseventresponsive");
 
     menuRectTop.classList.toggle("responsive__rect--topchange");
     menuRectBottom.classList.toggle("responsive__rect--bottomchange");
 }
 
 buttonOpenForm.addEventListener("click", toggleForm);
-buttonCloseForm.addEventListener("click", toggleForm)
+buttonCloseForm.addEventListener("click", toggleForm);
 formSearch.addEventListener("submit", handleSubmit);
 
 buttonOpenMenu.addEventListener("click", toggleMenu);
-buttonsMenu.forEach(button => button.addEventListener("click", toggleMenu))
+buttonsMenu.forEach((button) => button.addEventListener("click", toggleMenu));

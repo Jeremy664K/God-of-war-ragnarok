@@ -6,7 +6,7 @@ const responsesQuestions = $$(".questions__response");
 function handleQuestion(id) {
     const response = responsesQuestions[id];
 
-    response.classList.toggle("fade__in")
+    response.classList.toggle("fade__in");
     response.classList.toggle("isopenresponse");
 }
 

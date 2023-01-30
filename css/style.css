@@ -10,12 +10,12 @@
 
 :root {
     --max-width-center: 68rem;
-    
-    --font-global: "sst", -apple-system, system-ui, sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue"; 
+
+    --font-global: "sst", -apple-system, system-ui, sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue";
     --font-magic: "Berserker-Regular", -apple-system, system-ui, sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue";
 
     --space-separator-xl-small: 0.2rem;
-    --space-separator-x-small: 0.5rem; 
+    --space-separator-x-small: 0.5rem;
     --space-separator-small: 1.2rem;
     --space-separator-page: 10rem;
 
@@ -32,7 +32,7 @@
 
     --color-primary: #fff;
     --color-secondary: #000;
-    --color-tertiary: rgba(255,255,255,.09);
+    --color-tertiary: rgba(255, 255, 255, 0.09);
 
     --color-ps: #0070d1;
     --color-ps-hover: #005499;
@@ -76,7 +76,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-game-hover)
+    background-color: var(--color-game-hover);
 }
 
 /* GENERAL CLASSES */
@@ -108,7 +108,7 @@ body::-webkit-scrollbar-thumb:hover {
 .link {
     fill: var(--color-primary);
     font-size: var(--font-size-small);
-    transition: background-color .12s, color .12s;
+    transition: background-color 0.12s, color 0.12s;
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
@@ -120,13 +120,15 @@ body::-webkit-scrollbar-thumb:hover {
     color: var(--color-ps);
 }
 
-.link__ps, .link__game, .link__tertiary {
+.link__ps,
+.link__game,
+.link__tertiary {
     background-color: var(--color-ps);
     position: relative;
     color: var(--color-primary);
     padding: var(--space-separator-x-small) var(--space-separator-small);
     border-radius: var(--border-radius-rounded);
-}  
+}
 
 .link__ps:hover {
     background-color: var(--color-ps-hover);
@@ -137,7 +139,9 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-game);
 }
 
-.link__game::before, .link__ps::before, .link__tertiary::before { 
+.link__game::before,
+.link__ps::before,
+.link__tertiary::before {
     display: none;
     width: 100%;
     height: 100%;
@@ -151,7 +155,9 @@ body::-webkit-scrollbar-thumb:hover {
     content: "";
 }
 
-.link__game:active::before, .link__ps:active::before, .link__tertiary:active::before {
+.link__game:active::before,
+.link__ps:active::before,
+.link__tertiary:active::before {
     display: block;
 }
 
@@ -165,9 +171,10 @@ body::-webkit-scrollbar-thumb:hover {
     color: var(--color-primary);
 }
 
-.link__tertiary:hover, .home__footer__mature:hover {
+.link__tertiary:hover,
+.home__footer__mature:hover {
     color: var(--color-primary);
-    background-color: rgba(255,255,255,.16);
+    background-color: rgba(255, 255, 255, 0.16);
 }
 
 .title {
@@ -205,7 +212,8 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: end;
 }
 
-.ps__nav, .header__game {
+.ps__nav,
+.header__game {
     padding: var(--space-separator-x-small) var(--space-separator-small);
     background-color: var(--color-primary);
     justify-content: space-between;
@@ -218,14 +226,17 @@ body::-webkit-scrollbar-thumb:hover {
     height: auto;
 }
 
-.header__game__fixed, .loading, .modal, .search__page {
+.header__game__fixed,
+.loading,
+.modal,
+.search__page {
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 12%);
     position: fixed;
     top: 0;
     z-index: 2;
 }
 
-.search__page { 
+.search__page {
     top: 0;
     left: 0;
     width: 100%;
@@ -265,9 +276,23 @@ body::-webkit-scrollbar-thumb:hover {
     padding-top: 9rem;
 }
 
-.hero, .about, .features, .midgard, .midgard__watch, .characters, .portrait, .kingdoms, .combat, .combat__weapons, .combat__featured, .upgrade, .upgrade__home, .guide, .package {
+.hero,
+.about,
+.features,
+.midgard,
+.midgard__watch,
+.characters,
+.portrait,
+.kingdoms,
+.combat,
+.combat__weapons,
+.combat__featured,
+.upgrade,
+.upgrade__home,
+.guide,
+.package {
     position: relative;
-    overflow: hidden;   
+    overflow: hidden;
     background-image: linear-gradient(to bottom, var(--color-hero-end) 20%, var(--color-hero) 100%);
 }
 
@@ -276,12 +301,23 @@ body::-webkit-scrollbar-thumb:hover {
     left: 0;
 }
 
-.hero__video__content, .combat__video__content, .upgrade__video__content, .about__images, .features__image, .characters__images, .portrait__images, .combat__images, .upgrade__images, .guide__images, .package__images {      
+.hero__video__content,
+.combat__video__content,
+.upgrade__video__content,
+.about__images,
+.features__image,
+.characters__images,
+.portrait__images,
+.combat__images,
+.upgrade__images,
+.guide__images,
+.package__images {
     position: absolute;
     z-index: -1;
 }
 
-.hero__video__content::before, .about__images__bfg::before {
+.hero__video__content::before,
+.about__images__bfg::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -290,7 +326,40 @@ body::-webkit-scrollbar-thumb:hover {
     background-image: linear-gradient(to right, var(--color-hero) 0%, var(--color-hero-end) 60%);
 }
 
-.hero__video__content, .hero__video, .combat__video__content, .combat__video, .upgrade__video__content, .about__images, .features__image, .features__bg, .sell__card__image, .midgard__image, .midgard__bg, .myths__illustration, .characters__images, .characters__image, .characters__bg, .portrait__images, .portrait__bg, .portrait__image, .kingdoms__tree, .kingdoms__images, .combat__images, .combat__bg, .combat__power__image, .upgrade__bg, .upgrade__image, .upgrade__video, .guide__image, .guide__bg, .guide__images, .package__images, .package__image, .modal__images, .modal__image, .kingdoms__image {
+.hero__video__content,
+.hero__video,
+.combat__video__content,
+.combat__video,
+.upgrade__video__content,
+.about__images,
+.features__image,
+.features__bg,
+.sell__card__image,
+.midgard__image,
+.midgard__bg,
+.myths__illustration,
+.characters__images,
+.characters__image,
+.characters__bg,
+.portrait__images,
+.portrait__bg,
+.portrait__image,
+.kingdoms__tree,
+.kingdoms__images,
+.combat__images,
+.combat__bg,
+.combat__power__image,
+.upgrade__bg,
+.upgrade__image,
+.upgrade__video,
+.guide__image,
+.guide__bg,
+.guide__images,
+.package__images,
+.package__image,
+.modal__images,
+.modal__image,
+.kingdoms__image {
     object-fit: cover;
     width: 100%;
     height: 100%;
@@ -314,11 +383,13 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: var(--font-size-x-small);
 }
 
-.home__middle__price, .sell__card__price {
+.home__middle__price,
+.sell__card__price {
     font-size: var(--font-size-long);
 }
 
-.home__footer, .combat__featured {
+.home__footer,
+.combat__featured {
     justify-content: end;
 }
 
@@ -326,7 +397,7 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-tertiary);
 }
 
-.home__footer__mature {   
+.home__footer__mature {
     color: var(--color-primary);
     font-weight: 300;
     max-width: 15rem;
@@ -338,7 +409,15 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-hero);
 }
 
-.hero__gallery__content, .hero__gallery__list, .characters__list__content, .kingdoms__home__image, .kingdoms__tree, .midgard__content, .kingdoms__list, .kingdoms__list__tree, .kingdoms__realms {
+.hero__gallery__content,
+.hero__gallery__list,
+.characters__list__content,
+.kingdoms__home__image,
+.kingdoms__tree,
+.midgard__content,
+.kingdoms__list,
+.kingdoms__list__tree,
+.kingdoms__realms {
     position: relative;
     transition: transform 1s;
 }
@@ -346,41 +425,53 @@ body::-webkit-scrollbar-thumb:hover {
 .hero__gallery__link {
     position: relative;
     overflow: hidden;
-    box-shadow: 0 .25rem .43rem 0 var(--color-secondary);
+    box-shadow: 0 0.25rem 0.43rem 0 var(--color-secondary);
     filter: opacity(0.8);
     justify-content: center;
     border-radius: var(--border-radius-card);
-    transition: transform .12s;
+    transition: transform 0.12s;
 }
 
-.hero__gallery__link:hover, .portrait__link:hover {
+.hero__gallery__link:hover,
+.portrait__link:hover {
     transform: scale(1.02);
 }
 
-.hero__gallery__icon, .kingdoms__list__title, .kingdoms__list__links {
+.hero__gallery__icon,
+.kingdoms__list__title,
+.kingdoms__list__links {
     position: absolute;
 }
 
-.hero__gallery__pagination, .sell__card__tag, .characters__pagination, .combat__weapons, .loading, .modal__images {
+.hero__gallery__pagination,
+.sell__card__tag,
+.characters__pagination,
+.combat__weapons,
+.loading,
+.modal__images {
     justify-content: center;
 }
 
-.hero__gallery__next, .characters__next {
+.hero__gallery__next,
+.characters__next {
     transition: background-color 0.12s;
-    width: .93rem;
-    height: .18rem;
+    width: 0.93rem;
+    height: 0.18rem;
     background-color: var(--color-tertiary);
 }
 
-.hero__gallery__next:hover, .characters__next:hover {
+.hero__gallery__next:hover,
+.characters__next:hover {
     background-color: var(--color-primary);
 }
 
-.hero__gallery__next--active, .characters__next--active {
+.hero__gallery__next--active,
+.characters__next--active {
     background-color: var(--color-primary);
 }
 
-.hero__gallery__arrow, .characters__arrow {
+.hero__gallery__arrow,
+.characters__arrow {
     position: absolute;
     margin: 0 var(--space-separator-small);
     z-index: 1;
@@ -390,13 +481,23 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: var(--border-radius-rounded);
 }
 
-.hero__gallery__arrow--right, .characters__arrow--right {
+.hero__gallery__arrow--right,
+.characters__arrow--right {
     right: 0;
 }
 
 /* ABOUT */
 
-.about__images__bfg, .about__image__bg, .about__image__fg, .about__images__parallax, .about__image__parallax, .midgard__image, .kingdoms__images, .kingdoms__images__bg, .kingdoms__images__parallax, .upgrade__images {
+.about__images__bfg,
+.about__image__bg,
+.about__image__fg,
+.about__images__parallax,
+.about__image__parallax,
+.midgard__image,
+.kingdoms__images,
+.kingdoms__images__bg,
+.kingdoms__images__parallax,
+.upgrade__images {
     position: absolute;
     left: 0;
     object-fit: cover;
@@ -436,7 +537,10 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateX(20%);
 }
 
-.about__game__title, .about__game__abstract, .midgard__home__abstract, .myths__blockquote {
+.about__game__title,
+.about__game__abstract,
+.midgard__home__abstract,
+.myths__blockquote {
     font-weight: 300;
     line-height: 1.2;
     max-width: 35rem;
@@ -466,16 +570,21 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100%;
     padding: var(--space-separator-small);
     flex-direction: column;
-    background-color: rgba(31, 32, 36, .97);
+    background-color: rgba(31, 32, 36, 0.97);
 }
 
-.sell__card__features, .questions__link {
+.sell__card__features,
+.questions__link {
     text-align: left;
 }
 
 /* MIDGARD */
 
-.midgard__home, .characters__home, .kingdoms__home__title, .combat__weapons__title, .upgrade__home__title {
+.midgard__home,
+.characters__home,
+.kingdoms__home__title,
+.combat__weapons__title,
+.upgrade__home__title {
     z-index: 1;
     position: inherit;
     text-align: center;
@@ -484,7 +593,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .midgard__myths {
     position: relative;
-    color: var(--color-secondary);   
+    color: var(--color-secondary);
 }
 
 .myths__blockquote {
@@ -499,20 +608,34 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* CHARACTERS */
 
-.characters, .combat, .combat__weapons, .combat__featured, .upgrade, .upgrade__home, .guide, .package {
+.characters,
+.combat,
+.combat__weapons,
+.combat__featured,
+.upgrade,
+.upgrade__home,
+.guide,
+.package {
     background-image: none;
 }
 
-.characters__slider, .questions__title, .features__title, .midgard__title, .information__copy {
+.characters__slider,
+.questions__title,
+.features__title,
+.midgard__title,
+.information__copy {
     text-align: center;
 }
 
-.characters__link, .kingdoms__realms {
+.characters__link,
+.kingdoms__realms {
     filter: brightness(40%);
     transition: transform 0.12s, filter 0.12s;
 }
 
-.characters__link--active, .characters__link:hover, .kingdoms__realms:hover {
+.characters__link--active,
+.characters__link:hover,
+.kingdoms__realms:hover {
     filter: brightness(100%);
 }
 
@@ -530,8 +653,8 @@ body::-webkit-scrollbar-thumb:hover {
 .portrait__link {
     position: relative;
     padding: var(--space-separator-x-small);
-    box-shadow: 0 .25rem .43rem 0 var(--color-secondary);
-    transition: transform .12s;
+    box-shadow: 0 0.25rem 0.43rem 0 var(--color-secondary);
+    transition: transform 0.12s;
 }
 
 .portrait__image {
@@ -561,9 +684,12 @@ body::-webkit-scrollbar-thumb:hover {
     color: var(--color-secondary);
     max-width: 16rem;
     z-index: 1;
-} 
+}
 
-.kingdoms__realms, .kingdoms__list__title, .kingdoms__list__links, .kingdoms__tree {
+.kingdoms__realms,
+.kingdoms__list__title,
+.kingdoms__list__links,
+.kingdoms__tree {
     top: 0;
     transition: none;
 }
@@ -608,16 +734,28 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* COMBAT */
 
-.combat__featured__title, .midgard__title {
+.combat__featured__title,
+.midgard__title {
     max-width: 27rem;
 }
 
-.combat__power__title, .combat__power__image, .upgrade__features__title, .upgrade__features__image, .guide__card--together, .package__card__home, .package__card__image, .package__card__experience, .package__card__list, .modal__images, .modal__image, .modal__home__title {
+.combat__power__title,
+.combat__power__image,
+.upgrade__features__title,
+.upgrade__features__image,
+.guide__card--together,
+.package__card__home,
+.package__card__image,
+.package__card__experience,
+.package__card__list,
+.modal__images,
+.modal__image,
+.modal__home__title {
     width: 50%;
     height: auto;
 }
 
-/* UPGRADE */ 
+/* UPGRADE */
 
 .upgrade__features__card {
     color: var(--color-secondary);
@@ -625,7 +763,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* GUIDE */
 
-.guide__home, .guide__card--together, .package__card__list {
+.guide__home,
+.guide__card--together,
+.package__card__list {
     flex-direction: column;
     align-items: flex-start;
 }
@@ -649,7 +789,10 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-ps-hover);
 }
 
-.questions__response, .questions__expand__dash, .search__page, .responsive {
+.questions__response,
+.questions__expand__dash,
+.search__page,
+.responsive {
     display: none;
 }
 
@@ -683,14 +826,15 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* LOADING */
 
-.loading, .modal {
+.loading,
+.modal {
     position: fixed;
     display: none;
     background-color: var(--color-primary);
     color: var(--color-secondary);
     flex-direction: column;
     width: 100%;
-    height: 100%;   
+    height: 100%;
     z-index: 15;
 }
 
@@ -713,7 +857,7 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     color: var(--color-primary);
     background-color: var(--color-tertiary);
-    backdrop-filter: brightness(50%) blur(10px)
+    backdrop-filter: brightness(50%) blur(10px);
 }
 
 .modal__close {
@@ -750,7 +894,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .responsive__rect--topchange {
-        transform: translate(15px, -10px) rotate(45deg);    
+        transform: translate(15px, -10px) rotate(45deg);
     }
 
     .responsive__rect--bottomchange {
@@ -781,7 +925,10 @@ body::-webkit-scrollbar-thumb:hover {
         top: 0;
     }
 
-    .nav__shared__li, .nav__shared__button, .sell__card, .responsive {
+    .nav__shared__li,
+    .nav__shared__button,
+    .sell__card,
+    .responsive {
         display: flex;
         justify-content: center;
         width: 100%;
@@ -798,11 +945,14 @@ body::-webkit-scrollbar-thumb:hover {
         transform: scale(2) rotate(270deg);
     }
 
-    .upgrade__features__image, .combat__power__title {
+    .upgrade__features__image,
+    .combat__power__title {
         order: 1;
     }
 
-    .upgrade__features__title, .guide__home, .combat__power__figure {
+    .upgrade__features__title,
+    .guide__home,
+    .combat__power__figure {
         order: 2;
     }
 
@@ -810,11 +960,29 @@ body::-webkit-scrollbar-thumb:hover {
         object-position: 80%;
     }
 
-    .features__cards, .sell__cards, .portrait__content, .upgrade__features__card, .guide__card, .guide__together, .package__card, .information__platform, .combat__power__weapon, .modal__home {
+    .features__cards,
+    .sell__cards,
+    .portrait__content,
+    .upgrade__features__card,
+    .guide__card,
+    .guide__together,
+    .package__card,
+    .information__platform,
+    .combat__power__weapon,
+    .modal__home {
         flex-wrap: wrap;
     }
 
-    .upgrade__features__image, .upgrade__features__title, .guide__card, .package__card__image, .package__image, .package__card__home, .combat__power__image, .combat__power__title, .modal__home__title, .modal__images {
+    .upgrade__features__image,
+    .upgrade__features__title,
+    .guide__card,
+    .package__card__image,
+    .package__image,
+    .package__card__home,
+    .combat__power__image,
+    .combat__power__title,
+    .modal__home__title,
+    .modal__images {
         width: 100%;
     }
 }
@@ -826,10 +994,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @keyframes rotation {
-    0% { 
-        transform: rotate(360deg) 
+    0% {
+        transform: rotate(360deg);
     }
-} 
+}
 
 @keyframes fadeIn {
     0% {

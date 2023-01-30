@@ -14,8 +14,8 @@ const charactersTitle = $(".characters__title");
 const charactersNextArrow = $(".characters__arrow--right");
 const charactersPrevArrow = $(".characters__arrow--left");
 
-let charactersLinkActive = $(".characters__link--active")
-let charactersNextLinkActive = $(".characters__next--active")
+let charactersLinkActive = $(".characters__link--active");
+let charactersNextLinkActive = $(".characters__next--active");
 
 let galleryNextLinkActive = $(".hero__gallery__next--active");
 let position = 0;
@@ -24,7 +24,7 @@ let positionCharacter = 0;
 function refreshValue(pos) {
     position = pos;
     let value = position * -14;
-    
+
     gallery.style.transform = `translateX(${value}%)`;
 }
 
@@ -38,23 +38,23 @@ function moveSlider(nextLink, pos) {
 }
 
 function arrowSlider(isIncrement) {
-    if(!isIncrement && position <= 0 || isIncrement && position >= galleryNextLinks.length - 1) return;
-    position = isIncrement ? position + 1: position - 1;
+    if ((!isIncrement && position <= 0) || (isIncrement && position >= galleryNextLinks.length - 1)) return;
+    position = isIncrement ? position + 1 : position - 1;
 
     const nextLink = galleryNextLinks[position];
     moveSlider(nextLink, position);
 }
 
 function characterSlider(nextLink, pos, isCharacterLink) {
-    const characterLink = isCharacterLink ? nextLink: charactersLinks[pos];
-    const characterNextLink = isCharacterLink ? charactersNextLinks[pos]: nextLink; 
+    const characterLink = isCharacterLink ? nextLink : charactersLinks[pos];
+    const characterNextLink = isCharacterLink ? charactersNextLinks[pos] : nextLink;
 
     positionCharacter = pos;
     charactersTitle.textContent = characterLink.title;
-    informationLink.setAttribute("data-id", pos)
+    informationLink.setAttribute("data-id", pos);
 
     charactersLinkActive.classList.remove("characters__link--active");
-    charactersNextLinkActive.classList.remove("characters__next--active")
+    charactersNextLinkActive.classList.remove("characters__next--active");
 
     charactersLinkActive = characterLink;
     charactersNextLinkActive = characterNextLink;
@@ -64,13 +64,13 @@ function characterSlider(nextLink, pos, isCharacterLink) {
 }
 
 function characterArrowSlider(isIncrement) {
-    if(!isIncrement && positionCharacter <= 0 || isIncrement && positionCharacter >= charactersLinks.length - 1) return;
+    if ((!isIncrement && positionCharacter <= 0) || (isIncrement && positionCharacter >= charactersLinks.length - 1)) return;
 
-    positionCharacter = isIncrement ? positionCharacter + 1: positionCharacter - 1;
+    positionCharacter = isIncrement ? positionCharacter + 1 : positionCharacter - 1;
 
     const nextLink = charactersLinks[positionCharacter];
     characterSlider(nextLink, positionCharacter, true);
-} 
+}
 
 galleryNextLinks.forEach((nextLink, pos) => nextLink.addEventListener("click", () => moveSlider(nextLink, pos)));
 galleryNextArrow.addEventListener("click", () => arrowSlider(true));

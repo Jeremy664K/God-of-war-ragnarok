@@ -1,5 +1,5 @@
 import { $, $$, body } from "./assets/selectors.js";
-import { data } from "./assets/modal-data.js" 
+import { data } from "./assets/modal-data.js";
 
 const modal = $(".modal");
 const buttonsOpenModal = $$(".link__modal");
@@ -37,5 +37,5 @@ function closeModal() {
     modal.removeChild(lastChild);
 }
 
-buttonsOpenModal.forEach(button => button.addEventListener("click", () => openModal(button)));
-buttonCloseModal.addEventListener("click", closeModal)
+buttonsOpenModal.forEach((button) => button.addEventListener("click", () => openModal(button)));
+buttonCloseModal.addEventListener("click", closeModal);
