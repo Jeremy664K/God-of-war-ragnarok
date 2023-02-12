@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Jeremy664K/god-of-war-ragnarok.git"
+        "url": "git+https://github.com/jevmydev/god-of-war-ragnarok.git"
     },
     "keywords": [
         "God of War Ragnarök",
@@ -17,9 +17,9 @@
     ],
     "author": "Jeremy Díaz",
     "bugs": {
-        "url": "https://github.com/Jeremy664K/god-of-war-ragnarok/issues"
+        "url": "https://github.com/jevmydev/god-of-war-ragnarok/issues"
     },
-    "homepage": "https://github.com/Jeremy664K/god-of-war-ragnarok#readme",
+    "homepage": "https://github.com/jevmydev/god-of-war-ragnarok#readme",
     "devDependencies": {
         "eslint": "8.33.0",
         "eslint-config-prettier": "8.6.0",
